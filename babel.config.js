@@ -16,7 +16,7 @@ module.exports = {
   ],
     plugins: [
       // Self
-      "emotion",
+      "babel-plugin-styled-components",
       "graphql-tag",
       "react-hot-loader/babel",
       "transform-inline-environment-variables",
