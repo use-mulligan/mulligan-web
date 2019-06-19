@@ -38,7 +38,7 @@ export default {
     new Stylish(),
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
     modules: [
       path.join(__dirname, 'src'),
       'node_modules',

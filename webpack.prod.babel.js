@@ -38,7 +38,7 @@ export default {
       minRatio: 0.8,
     }),
     new HtmlWebpackPlugin({
-      title: 'Evan Kysley.',
+      title: 'Mulligan Web',
       // favicon: path.join(__dirname, 'assets', 'img', 'favicon.ico'),
       template: path.join(__dirname, 'src', 'index.ejs'),
       minify: {
@@ -58,7 +58,7 @@ export default {
     // new BundleAnalyzerPlugin(),
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
     modules: [
       path.join(__dirname, 'src'),
       'node_modules',
