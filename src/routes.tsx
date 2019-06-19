@@ -4,14 +4,18 @@ import {Switch, Route} from 'react-router-dom'
 
 import {StoreProvider} from '@/stores'
 
+import {ClientProvider} from '@/services/Client'
+
 const Login = React.lazy(() => import('@/pages/Login'))
 
 const Routes = () => (
-  <StoreProvider>
-    <Switch>
-      <Route exact path="/" component={Login} />
-    </Switch>
-  </StoreProvider>
+  <ClientProvider>
+    <StoreProvider>
+      <Switch>
+        <Route exact path="/" component={Login} />
+      </Switch>
+    </StoreProvider>
+  </ClientProvider>
 )
 
 export default hot(Routes)
