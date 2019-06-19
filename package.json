@@ -2,6 +2,12 @@
   "name": "mulligan-web",
   "version": "1.0.0",
   "license": "BSD-3-Clause",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --hot --config webpack.dev.babel.js",
+    "build": "cross-env NODE_ENV=production webpack --mode production --progress --config webpack.prod.babel.js",
+    "test": "jest --coverage --env=jsdom",
+    "test:watch": "jest --coverage --env=jsdom --watch"
+  },
   "dependencies": {
     "graphql": "^14.3.1",
     "graphql-tag": "^2.10.1",
