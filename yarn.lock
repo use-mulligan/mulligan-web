@@ -1010,6 +1010,13 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
+"@kevinwolf/formal-web@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@kevinwolf/formal-web/-/formal-web-0.1.1.tgz#32d978df6efbb58202e3f59bb70ab23f817b334f"
+  integrity sha512-lf4k8Ww2oAoGSCPzkhabxl+VbpnSr6ELEKjH1HEN5bKvlkoAIbGdHKdjWsyxeODbeZRAKJRKETtqEtVYimD5xg==
+  dependencies:
+    "@kevinwolf/formal" "^0.1.1"
+
 "@kevinwolf/formal@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@kevinwolf/formal/-/formal-0.1.1.tgz#722823f5536faee99e5cfbfc311b75ebb52efea2"
