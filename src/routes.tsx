@@ -6,13 +6,13 @@ import {StoreProvider} from '@/stores'
 
 import {ClientProvider} from '@/services/Client'
 
-const Login = React.lazy(() => import('@/pages/Login'))
+const Signup = React.lazy(() => import('@/pages/Signup'))
 
 const Routes = () => (
   <ClientProvider>
     <StoreProvider>
       <Switch>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/signup" component={Signup} />
       </Switch>
     </StoreProvider>
   </ClientProvider>
