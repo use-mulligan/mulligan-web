@@ -3,12 +3,13 @@ import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import WebpackChunkHash from 'webpack-chunk-hash'
 import CompressionWebpackPlugin from 'compression-webpack-plugin'
-import CleanWebpackPlugin from 'clean-webpack-plugin'
+import {CleanWebpackPlugin} from 'clean-webpack-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 
 export default {
+  mode: 'production',
   entry: {
     app: [
       path.join(__dirname, 'src', 'index.tsx'),
