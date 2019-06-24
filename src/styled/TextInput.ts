@@ -3,11 +3,11 @@ import styled, {css} from 'styled-components'
 import {colors} from '@/styled/Theme'
 
 const inputBaseStyles = css`
-  background-color: ${colors.n100};
+  /* background-color: ${colors.n100}; */
   border: none;
-  /* border-width: 1px;
+  border-width: 1px;
   border-style: solid;
-  border-color: ${colors.n200}; */
+  border-color: ${colors.n200};
   border-radius: 4px;
   /* box-shadow: rgba(8, 35, 51, 0.05) 0px 3px 6px; */
   padding: 0.75rem 0.75rem;
@@ -19,8 +19,8 @@ const inputBaseStyles = css`
 
   &:focus,
   &:active {
-    outline: 1px solid ${colors.b300};
-    /* outline: none; */
+    border-color: ${colors.intent.none};
+    outline: none;
   }
 
   &::placeholder {
