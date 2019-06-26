@@ -1,31 +1,16 @@
 import React, {FC, useEffect} from 'react'
 import useFormal from '@kevinwolf/formal-web'
 import {useMutation} from 'urql'
-import * as yup from 'yup'
+
+import {registerSchema} from '@/helpers/validation'
 
 import {Input, Label} from '@/styled/TextInput'
+
+import {SignupForm, SignupFormContainer} from '@/styled/Forms'
 
 import {useStore} from '@/stores'
 
 import SIGNUP from '@/graphql/mutations/signup'
-
-const schema = yup.object().shape({
-  firstName: yup.string().required(),
-  lastName: yup.string().required(),
-  email: yup
-    .string()
-    .email()
-    .required(),
-  password: yup
-    .string()
-    .min(5)
-    .max(25)
-    .required(),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password'), null], "Passwords don't match!")
-    .required(),
-})
 
 const initialValues = {
   firstName: '',
@@ -38,7 +23,7 @@ const initialValues = {
 const Login: FC = props => {
   const [mutation, execMutation] = useMutation(SIGNUP)
   const formal = useFormal(initialValues, {
-    schema,
+    schema: registerSchema,
     onSubmit: async values => {
       console.log(values)
       await execMutation({
@@ -56,14 +41,14 @@ const Login: FC = props => {
   }, [mutation])
 
   return (
-    <>
+    <SignupFormContainer>
       <div>{mutation.data && !mutation.error && <p>account created!</p>}</div>
       <div>
         {mutation.data && mutation.error && (
           <p>something went wrong while creating your account</p>
         )}
       </div>
-      <form {...formal.getFormProps()}>
+      <SignupForm {...formal.getFormProps()}>
         <div>
           <Label htmlFor="firstName">First Name</Label>
           <Input
@@ -102,8 +87,8 @@ const Login: FC = props => {
         <button {...formal.getSubmitButtonProps()} type="submit">
           Submit
         </button>
-      </form>
-    </>
+      </SignupForm>
+    </SignupFormContainer>
   )
 }
 
