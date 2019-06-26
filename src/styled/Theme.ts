@@ -205,7 +205,11 @@ export const link = {
   },
 }
 
-export const bundle = {
+interface Dic {
+  [key: string]: any
+}
+
+export const bundle: Dic = {
   intent: intentMeta,
   primary,
   minimal,
