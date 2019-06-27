@@ -3,15 +3,10 @@ import useFormal from '@kevinwolf/formal-web'
 import {useMutation} from 'urql'
 
 import {registerSchema} from '@/helpers/validation'
-
 import {Input, Label} from '@/styled/TextInput'
-
 import {SignupForm, SignupFormContainer} from '@/styled/Forms'
-
 import Button from '@/styled/Button'
-
 import {useStore} from '@/stores'
-
 import SIGNUP from '@/graphql/mutations/signup'
 
 const initialValues = {

@@ -2,24 +2,20 @@ import React from 'react'
 import {hot} from 'react-hot-loader/root'
 import {Switch, Route} from 'react-router-dom'
 
-import {StoreProvider} from '@/stores'
-
-import {ClientProvider} from '@/services/Client'
-
-import {AppContainer} from '@/styled/AppContainer'
+import {AppContainer, AppWrapper} from '@/styled/AppContainer'
+import Header from '@/components/Header'
 
 const Signup = React.lazy(() => import('@/pages/Signup'))
 
 const Routes = () => (
-  <ClientProvider>
-    <StoreProvider>
-      <AppContainer>
-        <Switch>
-          <Route exact path="/signup" component={Signup} />
-        </Switch>
-      </AppContainer>
-    </StoreProvider>
-  </ClientProvider>
+  <AppWrapper>
+    <AppContainer>
+      <Header />
+      <Switch>
+        <Route exact path="/signup" component={Signup} />
+      </Switch>
+    </AppContainer>
+  </AppWrapper>
 )
 
 export default hot(Routes)

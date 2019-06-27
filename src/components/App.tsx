@@ -2,6 +2,8 @@ import React, {FC, Suspense} from 'react'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {createGlobalStyle} from 'styled-components'
 
+import {StoreProvider} from '@/stores'
+import {ClientProvider} from '@/services/Client'
 import Routes from '@/routes'
 
 const GlobalStyle = createGlobalStyle`
@@ -48,12 +50,16 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App: FC = () => (
-  <Router>
-    <GlobalStyle />
-    <Suspense fallback={'Loading ...'}>
-      <Routes />
-    </Suspense>
-  </Router>
+  <ClientProvider>
+    <StoreProvider>
+      <Router>
+        <GlobalStyle />
+        <Suspense fallback={'Loading ...'}>
+          <Routes />
+        </Suspense>
+      </Router>
+    </StoreProvider>
+  </ClientProvider>
 )
 
 export default App

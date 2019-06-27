@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const SignupFormContainer = styled.div`
   position: relative;
   top: 10vh;
+  max-width: 50vw;
+  align-self: center;
 `
 
 export const SignupForm = styled.form`
