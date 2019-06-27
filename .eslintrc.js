@@ -41,7 +41,7 @@ module.exports = {
     },
   },
 
-  overrides: {
+  overrides: [{
     files: ['**/*.ts', '**/*.tsx'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -91,7 +91,7 @@ module.exports = {
       'no-useless-constructor': 'off',
       '@typescript-eslint/no-useless-constructor': 'warn',
     },
-  },
+  }],
 
   // NOTE: When adding rules here, you need to make sure they are compatible with
   // `typescript-eslint`, as some rules such as `no-array-constructor` aren't compatible.
@@ -235,6 +235,7 @@ module.exports = {
     'import/order': [
       'warn',
       {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
         'newlines-between': 'always',
       },
     ],
