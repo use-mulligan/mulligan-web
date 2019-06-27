@@ -8,6 +8,8 @@ import {Input, Label} from '@/styled/TextInput'
 
 import {SignupForm, SignupFormContainer} from '@/styled/Forms'
 
+import Button from '@/styled/Button'
+
 import {useStore} from '@/stores'
 
 import SIGNUP from '@/graphql/mutations/signup'
@@ -84,9 +86,14 @@ const Login: FC = props => {
             <div>{formal.errors.confirmPassword}</div>
           )}
         </div>
-        <button {...formal.getSubmitButtonProps()} type="submit">
+        <Button
+          intent="none"
+          appearance="primary"
+          {...formal.getSubmitButtonProps()}
+          type="submit"
+        >
           Submit
-        </button>
+        </Button>
       </SignupForm>
     </SignupFormContainer>
   )

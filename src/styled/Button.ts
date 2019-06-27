@@ -1,13 +1,6 @@
 import styled, {css} from 'styled-components'
-import PropTypes from 'prop-types'
 
 import {bundle} from '@/styled/Theme'
-
-const disabledStyles = css`
-  opacity: 0.4;
-  pointer-events: none;
-  user-selectable: none;
-`
 
 const buttonBaseStyles = css`
   height: 40px;
@@ -31,7 +24,8 @@ const buttonBaseStyles = css`
 
   &[disabled],
   &:disabled {
-    ${disabledStyles};
+    opacity: 0.4;
+    pointer-events: none;
   }
 
   & > svg {
@@ -46,36 +40,36 @@ const linkButtonStyles = css`
 `
 
 interface ButtonProps {
-  appearance: 'none' | 'success' | 'warning' | 'primary'
-  intent: 'default' | 'minimal' | 'primary' | 'link'
+  intent: 'none' | 'success' | 'warning' | 'primary'
+  appearance: 'default' | 'minimal' | 'primary' | 'link'
 }
 
-const Button = styled('button')(
-  buttonBaseStyles,
+const Button = styled.button<ButtonProps>(
   ({appearance, intent}: ButtonProps) => `
     background-color: ${bundle[appearance][intent].bg};
     color: ${bundle[appearance][intent].text};
     :hover {
       background-color: ${bundle[appearance][intent].hover};
     }
+    ${buttonBaseStyles}
+    ${(p: any) =>
+      p.appearance === 'link'
+        ? css`
+            ${linkButtonStyles}
+          `
+        : null}
   `,
-  (p: any) =>
-    p.appearance === 'link'
-      ? css`
-          ${linkButtonStyles}
-        `
-      : null,
 )
 
-Button.propTypes = {
-  intent: PropTypes.oneOf(['none', 'success', 'warning', 'danger']),
-  appearance: PropTypes.oneOf(['default', 'minimal', 'primary', 'link'])
-    .isRequired,
-}
+// Button.propTypes = {
+//   intent: PropTypes.oneOf(['none', 'success', 'warning', 'danger']),
+//   appearance: PropTypes.oneOf(['default', 'minimal', 'primary', 'link'])
+//     .isRequired,
+// }
 
-Button.defaultProps = {
-  intent: 'none',
-  appearance: 'default',
-}
+// Button.defaultProps = {
+//   intent: 'none',
+//   appearance: 'default',
+// }
 
 export default Button
