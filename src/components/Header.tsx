@@ -52,7 +52,7 @@ const Header: FC = observer(props => {
                 Login
               </Button>
             </LoginTab>
-            <SignupTab to="/register">
+            <SignupTab to="/signup">
               <Button intent="none" appearance="default">
                 Sign Up
               </Button>

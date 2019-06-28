@@ -33,7 +33,9 @@ const Tab = styled(NavLink)`
   justify-items: center;
 
   &.active {
-    background-color: ${colors.black};
+    > button {
+      background-color: ${colors.n200};
+    }
   }
 `
 
